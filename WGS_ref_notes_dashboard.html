@@ -30,7 +30,7 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -54,20 +54,20 @@ header {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-weight: 500; font-size: 13px; color: #fff;
+  font-family: var(--mono); font-weight: 500; font-size: 14px; color: #fff;
   letter-spacing: -1px; flex-shrink: 0;
 }
-.header-title { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: 0.2px; }
-.header-sub { font-size: 11px; color: var(--text2); font-family: var(--mono); }
+.header-title { font-size: 17px; font-weight: 600; color: var(--text); letter-spacing: 0.2px; }
+.header-sub { font-size: 12px; color: var(--text2); font-family: var(--mono); }
 .search-wrap { flex: 1; min-width: 220px; max-width: 420px; position: relative; }
-.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 14px; pointer-events: none; }
+.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 15px; pointer-events: none; }
 #search {
   width: 100%;
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 8px 12px 8px 36px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text);
   font-family: var(--sans);
   outline: none;
@@ -92,8 +92,8 @@ header {
   white-space: nowrap;
 }
 .stat-item:first-child { padding-left: 0; }
-.stat-num { font-family: var(--mono); font-size: 20px; font-weight: 500; color: var(--accent); }
-.stat-label { font-size: 11px; color: var(--text2); }
+.stat-num { font-family: var(--mono); font-size: 22px; font-weight: 500; color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text2); }
 
 /* ── FILTER TABS ── */
 .filter-bar {
@@ -105,11 +105,11 @@ header {
   border-bottom: 1px solid var(--border);
   background: var(--bg);
 }
-.filter-label { font-size: 11px; color: var(--text3); font-family: var(--mono); margin-right: 4px; }
+.filter-label { font-size: 12px; color: var(--text3); font-family: var(--mono); margin-right: 4px; }
 .tab {
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
   border: 1px solid var(--border);
@@ -124,26 +124,26 @@ header {
 
 /* ── TABLE ── */
 .table-container { padding: 1.5rem 2rem; overflow-x: auto; }
-.count-line { font-size: 11px; color: var(--text3); font-family: var(--mono); margin-bottom: 1rem; }
+.count-line { font-size: 12px; color: var(--text3); font-family: var(--mono); margin-bottom: 1rem; }
 table { width: 100%; border-collapse: collapse; min-width: 900px; }
 thead tr { border-bottom: 1px solid var(--border2); }
 th {
   padding: 8px 12px; text-align: left;
-  font-size: 10px; font-weight: 600; letter-spacing: 0.8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.8px;
   text-transform: uppercase; color: var(--text3);
   font-family: var(--mono); white-space: nowrap;
 }
 td { padding: 10px 12px; vertical-align: top; border-bottom: 1px solid var(--border); }
 tr:hover td { background: var(--bg2); }
-.title-cell { font-weight: 500; font-size: 12.5px; color: var(--text); line-height: 1.5; max-width: 280px; }
+.title-cell { font-weight: 500; font-size: 14px; color: var(--text); line-height: 1.5; max-width: 280px; }
 .title-cell .year-tag {
   display: inline-block; margin-top: 4px;
-  font-family: var(--mono); font-size: 10px; color: var(--text3);
+  font-family: var(--mono); font-size: 11px; color: var(--text3);
 }
-.author-cell { font-size: 11px; color: var(--text2); max-width: 140px; line-height: 1.4; }
-.journal-cell { font-size: 11px; color: var(--text2); font-style: italic; max-width: 110px; }
-.country-cell { font-size: 11px; color: var(--text2); max-width: 100px; }
-.finding-cell { font-size: 12px; color: var(--text); line-height: 1.65; max-width: 480px; }
+.author-cell { font-size: 12px; color: var(--text2); max-width: 140px; line-height: 1.4; }
+.journal-cell { font-size: 12px; color: var(--text2); font-style: italic; max-width: 110px; }
+.country-cell { font-size: 12px; color: var(--text2); max-width: 100px; }
+.finding-cell { font-size: 13px; color: var(--text); line-height: 1.65; max-width: 480px; }
 .finding-cell ul { padding-left: 1rem; margin-top: 2px; }
 .finding-cell li { margin-bottom: 4px; color: var(--text2); }
 .finding-cell li strong { color: var(--text); }
@@ -152,7 +152,7 @@ tr:hover td { background: var(--bg2); }
 /* BADGE */
 .badge {
   display: inline-block; padding: 2px 9px; border-radius: 12px;
-  font-size: 10px; font-weight: 600; letter-spacing: 0.3px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
   font-family: var(--mono); white-space: nowrap;
 }
 .b-blue   { background: rgba(77,159,255,.15);  color: var(--accent);  border: 1px solid rgba(77,159,255,.3); }
@@ -168,7 +168,7 @@ tr:hover td { background: var(--bg2); }
   padding: 1px 6px;
   border-radius: 4px;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.5px;
   background: var(--rose);
@@ -181,13 +181,13 @@ tr:hover td { background: var(--bg2); }
 .title-cell a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* EMPTY */
-.empty-row td { text-align: center; padding: 3rem; color: var(--text3); font-size: 13px; }
+.empty-row td { text-align: center; padding: 3rem; color: var(--text3); font-size: 14px; }
 
 /* FOOTER */
 footer {
   text-align: center; padding: 1.5rem 2rem;
   border-top: 1px solid var(--border);
-  font-size: 11px; color: var(--text3); font-family: var(--mono);
+  font-size: 12px; color: var(--text3); font-family: var(--mono);
 }
 </style>
 </head>
@@ -376,7 +376,7 @@ function render() {
     const matchCat = activeCat === "全部" || d.cat === activeCat;
     const matchQ = !q || (d.title + d.authors + d.finding + d.country + d.year + d.journal).toLowerCase().includes(q);
     return matchCat && matchQ;
-  });
+  }).sort((a, b) => (parseInt(b.year) || 0) - (parseInt(a.year) || 0));
 
   // Update stats
   document.getElementById('s-total').textContent = DATA.length;
