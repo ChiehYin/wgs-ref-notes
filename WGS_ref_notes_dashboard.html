@@ -418,63 +418,63 @@ const DATA = [
 const HOST_DATA = [
   {
     cat: "host genetics",
-    title: "GWAS meta-analysis identifies HLA class II locus associated with tuberculosis susceptibility (Schurz 2024)",
-    authors: "Schurz H, Naranbhai V, Tromp G, et al.",
+    title: "Multi-ancestry meta-analysis of host genetic susceptibility to tuberculosis identifies shared genetic architecture",
+    authors: "Schurz H, Naranbhai V, Yates TA, Gilchrist JJ, Parks T, Dodd PJ, Möller M, Hoal EG, Morris AP, Hill AVS; International Tuberculosis Host Genetics Consortium",
     journal: "eLife",
     year: "2024",
-    country: "Multi-country (GWAS meta-analysis)",
+    country: "Multi-ancestry (African, Asian, European)",
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10789494/",
-    database: "UK Biobank, TBResist, GWAS Catalog, dbGaP",
-    gene: "HLA-DQA1, HLA-DRB1 (rs28383206)",
-    finding: `<ul><li>GWAS meta-analysis: <strong>14,153 TB cases / 19,536 controls</strong> across multiple ancestries</li><li>Lead signal: <strong>rs28383206</strong> in HLA class II region (p=5.2×10⁻⁹), mapping to HLA-DQA1/HLA-DRB1</li><li>SNP-based heritability: <strong>h²=26.3%</strong> — substantial host genetic contribution confirmed</li><li>HLA-II variants modulate antigen presentation to CD4⁺ T cells, a central pathway in Mtb adaptive immunity</li></ul>`
+    database: "ITHGC GWAS consortium (multi-ancestry cohorts)",
+    gene: "HLA-II region (rs28383206)",
+    finding: `<ul><li>Multi-ancestry GWAS meta-analysis: <strong>14,153 TB cases / 19,536 controls</strong> of African, Asian, and European ancestry</li><li>Pooled polygenic heritability: <strong>h²=26.3%</strong> (95% CI 23.7–29.0%) — substantial host genetic influence shared across ancestries</li><li>One genome-wide significant locus: <strong>HLA-II region (rs28383206, p=5.2×10⁻⁹)</strong></li><li>Previously associated variants <strong>failed to replicate</strong>, highlighting the complex shared genetic architecture of TB susceptibility</li><li>Emphasises importance of large-scale multi-ancestry GWAS across populations with different infection pressures</li></ul>`
   },
   {
     cat: "host genetics",
-    title: "Host genetic susceptibility to tuberculosis: a review of candidate gene studies (Aravindan 2019)",
-    authors: "Aravindan T et al.",
+    title: "Host genetics and tuberculosis: Theory of genetic polymorphism and tuberculosis",
+    authors: "Aravindan PP",
     journal: "Lung India",
     year: "2019",
-    country: "Review",
+    country: "Review (multi-country, multi-ethnic)",
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6503728/",
-    database: "Literature review (candidate gene studies)",
-    gene: "NRAMP-1 (SLC11A1), VDR, TLR2/4/8/9, HLA-DR, IFNG, IL-12, SP110, P2X7",
-    finding: `<ul><li>Comprehensive review of <strong>20+ candidate genes</strong> implicated in TB susceptibility across ethnicities</li><li><strong>NRAMP-1 (SLC11A1)</strong>: most consistently replicated susceptibility gene; 3′UTR TGTG deletion allele increases risk</li><li><strong>VDR</strong> polymorphisms (TaqI, FokI, BsmI, ApaI) show population-specific associations with TB</li><li><strong>TLR2/4/8/9</strong>: functional variants impair Mtb pattern recognition; TLR8 Met1Val notably consistent</li><li>Ethnic heterogeneity is a major limitation — highlights need for large multi-ethnic GWAS</li></ul>`
+    database: "Case-control studies, meta-analyses (literature review)",
+    gene: "NRAMP-1/SLC11A1, VDR, CCL2/MCP-1, IRGM-1, IL-1/8/10/12, TLR, NOD-2, HLA, MBL, MHC, TNF, P2X7, SP110, IFN-γ",
+    finding: `<ul><li>Comprehensive review of genetic polymorphisms across <strong>multiple immune genes</strong> and their association with TB susceptibility</li><li>Only <strong>10–15%</strong> of Mtb-infected individuals progress to TB disease — host genetic predisposition is a key determinant</li><li>Reviewed genes include: NRAMP-1, VDR, LMP/TAP, CCL-2/MCP-1, IRGM-1, IL-1/8/10/12, TLR, NOD-2, HLA, MBL, MHC, TNF, P2X7, SP110, IFN-γ</li><li>Variable levels of significance across populations and ethnic groups; no single universally replicating variant</li><li>Conclusion: TB is a <strong>genetically primed infectious disease</strong>; genetic polymorphism is the mechanism driving progression from infection to disease</li></ul>`
   },
   {
     cat: "host genetics",
-    title: "Human genetics and genomics of tuberculosis susceptibility (Naranbhai 2016)",
-    authors: "Naranbhai V.",
+    title: "The Role of Host Genetics (and Genomics) in Tuberculosis",
+    authors: "Naranbhai V",
     journal: "Microbiol Spectr",
     year: "2016",
     country: "Review",
     url: "https://journals.asm.org/doi/10.1128/microbiolspec.tbtb2-0011-2016",
-    database: "Review (GWAS, linkage, candidate gene studies)",
-    gene: "SLC11A1, HLA region, chr11q12.3 (WT1/HAUS4), ASAP1",
-    finding: `<ul><li>Addresses the <strong>heritability paradox</strong>: twin studies show 40–80% heritability, yet GWAS hits explain only a fraction</li><li>Key GWAS loci: <strong>chr11q12.3</strong> (WT1/HAUS4 region), <strong>ASAP1</strong> (dendritic cell migration/function), <strong>HLA region</strong></li><li>Candidate gene era: <strong>SLC11A1</strong> most replicated; evidence also for VDR, TLR, and cytokine gene variants</li><li>Calls for larger diverse cohorts and functional genomics integration to explain "missing heritability"</li></ul>`
+    database: "Review (twin studies, GWAS, candidate gene, transcriptome-wide)",
+    gene: "Multiple (candidate genes and GWAS loci reviewed)",
+    finding: `<ul><li>Familial and twin concordance studies confirm <strong>substantial host genetic component</strong> to TB susceptibility</li><li><strong>Heritability paradox</strong>: high heritability demonstrated, yet few loci convincingly replicated across multiple populations</li><li>Candidate gene and early linkage studies limited by small sample sizes; GWAS/transcriptome-wide studies identified only a handful of new pathways</li><li>New wave of large collaborative global studies spurred by the paradox of high heritability but sparse replicable associations</li><li>Aims to identify pathophysiological features translatable to <strong>new preventive, diagnostic, or therapeutic interventions</strong></li></ul>`
   },
   {
     cat: "host genetics",
-    title: "Epigenetic modifications in tuberculosis infection: mechanisms and therapeutic implications (Abbasnia 2024)",
-    authors: "Abbasnia S et al.",
+    title: "Mycobacterium tuberculosis and host interactions in the manifestation of tuberculosis",
+    authors: "Abbasnia S, Asnaashari AMH, Sharebiani H, Soleimanpour S, Mosavat A, Rezaee SA",
     journal: "J Clin Tuberculosis Other Mycobact Dis",
     year: "2024",
     country: "Review",
     url: "https://www.sciencedirect.com/science/article/pii/S2405579424000457",
-    database: "Literature review (epigenetic studies)",
-    gene: "DUSP4, TRIM62, KDM6B (JMJD3), IFN-γ pathway genes",
-    finding: `<ul><li>Reviews how Mtb hijacks host <strong>DNA methylation</strong> and <strong>histone modifications</strong> (H3K4me3↓, H3K27me3↑) to suppress immune gene expression</li><li><strong>DUSP4</strong> promoter hypermethylation silences MAPK-driven immune activation in infected macrophages</li><li><strong>KDM6B (JMJD3)</strong>, a histone H3K27 demethylase, promotes pro-inflammatory gene expression — a potential therapeutic target</li><li>Mtb-induced epigenetic changes can <strong>persist after pathogen clearance</strong>, potentially contributing to TB reactivation and altered susceptibility in subsequent exposures</li></ul>`
+    database: "Literature review (epigenetics studies)",
+    gene: "Epigenetic regulators (gene expression focus; specific genes reviewed within full text)",
+    finding: `<ul><li>Comprehensive review of <strong>epigenetic findings</strong> on gene expression during host-pathogen interactions in TB development and progression</li><li>Epigenetic processes (neuroendocrine changes, active infection, oncogenes, chemical agents) alter gene expression in new microenvironments — shaping outcome of M.tb infection</li><li>M.tb–host interaction determines outcome: <strong>active TB, latent TB, or clearance</strong></li><li>Epigenetic changes provide a promising future for developing <strong>effective TB immunotherapies</strong> by converting gene expression toward appropriate host immune responses</li><li>Identifies gaps in understanding M.tb behaviour and highlights the dark sides of TB pathogenesis</li></ul>`
   },
   {
     cat: "host genetics",
-    title: "Polygenic risk score incorporating TYK2 P1104A for tuberculosis susceptibility (Dashian 2025)",
-    authors: "Dashian P et al.",
+    title: "Genetic Susceptibility to Tuberculosis and the Utility of Polygenic Scores in Population Stratification",
+    authors: "Dashian MA, Shipulin GA, Deviatkin AA",
     journal: "Int J Mol Sci",
     year: "2025",
-    country: "Estonia, Finland, UK (biobank-based)",
+    country: "Review",
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12524525/",
-    database: "Estonian Biobank, FinnGen, UK Biobank",
-    gene: "TYK2 (P1104A, rs34536443), HLA-A, SLC11A1",
-    finding: `<ul><li>Develops and validates a <strong>polygenic risk score (PRS)</strong> for TB susceptibility using three large biobanks</li><li><strong>TYK2 P1104A (rs34536443)</strong>: largest effect-size variant (OR ~2.5 for TB risk); loss-of-function allele impairs type I IFN and IL-12/IL-23 signalling</li><li>PRS integrating TYK2, HLA, and SLC11A1 variants achieves <strong>AUC ~0.67</strong> for TB prediction — modest but clinically informative</li><li>TYK2 P1104A carriers on JAK inhibitors (e.g., for rheumatoid arthritis) face elevated TB risk — <strong>clinical screening implication</strong></li></ul>`
+    database: "Literature review (GWAS studies, PRS literature)",
+    gene: "TYK2 P1104A (high-penetrance); multiple common variants (PRS)",
+    finding: `<ul><li>Up to <strong>36%</strong> of the population is infected with latent TB; only ~<strong>1 in 10</strong> progress to active disease — complex host genetic + environmental interaction</li><li>Previous GWAS: sparse and incongruent results; genetic determinants of TB remain insufficiently established</li><li>Rare high-penetrance variant <strong>TYK2 P1104A</strong> → monogenic susceptibility; most heritable risk from cumulative effect of numerous common variants</li><li><strong>No PRS model for TB has been consistently validated</strong>; limited by phenotypic heterogeneity, population structure, host–pathogen co-adaptation, and environmental factors</li><li>Despite limitations, polygenic models could improve <strong>individual risk stratification</strong> vs. single-variant association — enabling earlier targeted treatment and prophylaxis</li></ul>`
   }
 ];
 
