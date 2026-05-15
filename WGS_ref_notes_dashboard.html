@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WGS Reference Notes Dashboard</title>
+<title>TB Genomic References Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -189,6 +189,27 @@ footer {
   border-top: 1px solid var(--border);
   font-size: 12px; color: var(--text3); font-family: var(--mono);
 }
+
+/* ── PAGE NAV ── */
+.page-nav {
+  display: flex; gap: 6px; align-items: center;
+  padding: 0.65rem 2rem;
+  background: var(--bg2);
+  border-bottom: 2px solid var(--border);
+}
+.page-btn {
+  padding: 6px 20px; border-radius: 6px;
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  border: 1px solid var(--border); color: var(--text2);
+  background: transparent; font-family: var(--sans);
+  transition: all .15s; letter-spacing: 0.2px;
+}
+.page-btn:hover { border-color: var(--border2); color: var(--text); background: var(--bg3); }
+.page-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(77,159,255,.12); font-weight: 600; }
+
+/* ── HOST TABLE EXTRA CELLS ── */
+.db-cell { font-size: 12px; color: var(--text2); max-width: 130px; line-height: 1.4; }
+.gene-cell { font-size: 12px; color: var(--amber); max-width: 130px; line-height: 1.4; font-family: var(--mono); }
 </style>
 </head>
 <body>
@@ -197,15 +218,23 @@ footer {
   <div class="header-left">
     <div class="logo-mark">WGS</div>
     <div>
-      <div class="header-title">WGS Reference Notes</div>
+      <div class="header-title">TB Genomic References</div>
       <div class="header-sub">結核菌全基因組定序文獻整理 Dashboard</div>
     </div>
   </div>
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
-    <input id="search" type="text" placeholder="搜尋標題、作者、地點、findings…" oninput="render()">
+    <input id="search" type="text" placeholder="搜尋標題、作者、地點、findings…" oninput="searchDispatch()">
   </div>
 </header>
+
+<nav class="page-nav">
+  <button class="page-btn active" data-page="wgs" onclick="switchPage('wgs')">🧬 WGS Epidemiology</button>
+  <button class="page-btn" data-page="host" onclick="switchPage('host')">🧫 Host-Pathogen</button>
+</nav>
+
+<!-- ══ PAGE: WGS Epidemiology ══ -->
+<div id="page-wgs">
 
 <div class="stats-bar">
   <div class="stat-item"><span class="stat-num" id="s-total">—</span><span class="stat-label">總文獻數</span></div>
@@ -237,7 +266,45 @@ footer {
   </table>
 </div>
 
-<footer>WGS_ref_notes · 最後更新 2026-05-14 · 共 <span id="ft-total"></span> 筆文獻整理</footer>
+</div><!-- end #page-wgs -->
+
+<!-- ══ PAGE: Host-Pathogen ══ -->
+<div id="page-host" style="display:none">
+
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num" id="h-total">—</span><span class="stat-label">總文獻數</span></div>
+  <div class="stat-item"><span class="stat-num" id="h-finding">—</span><span class="stat-label">有 Finding 整理</span></div>
+  <div class="stat-item"><span class="stat-num" id="h-cats">—</span><span class="stat-label">主題類別</span></div>
+  <div class="stat-item"><span class="stat-num" id="h-shown">—</span><span class="stat-label">目前顯示</span></div>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">CATEGORY //</span>
+  <div id="htabs"></div>
+</div>
+
+<div class="table-container">
+  <div class="count-line" id="hcount-line"></div>
+  <table style="min-width:1100px">
+    <thead>
+      <tr>
+        <th style="width:18%">文章標題</th>
+        <th style="width:9%">作者</th>
+        <th style="width:8%">期刊</th>
+        <th style="width:7%">地點 / 設計</th>
+        <th style="width:7%">類別</th>
+        <th style="width:10%">Database</th>
+        <th style="width:10%">Gene Investigated</th>
+        <th style="width:31%">Main Finding（重點整理）</th>
+      </tr>
+    </thead>
+    <tbody id="htbody"></tbody>
+  </table>
+</div>
+
+</div><!-- end #page-host -->
+
+<footer>WGS_ref_notes · 最後更新 2026-05-15 · 共 <span id="ft-total"></span> 筆文獻整理</footer>
 
 <script>
 const DATA = [
@@ -347,8 +414,77 @@ const DATA = [
   {cat:"genomic+spatial",title:"Genomic epidemiology of Mycobacterium tuberculosis in Malawi: using global phylogeography to understand the impact of geographically focused interventions",authors:"Microbial Genomics consortium (Malawi)",journal:"Microbial Genomics",year:"2026",country:"Malawi",url:"https://www.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.001674",added:"2026-05-08",finding:`<ul><li>運用 <strong>global phylogeography</strong> 描述 Mtb 在不同<strong>空間/時間尺度</strong>上的移動</li><li>探討<strong>地理性公衛介入</strong>對族群結構之影響（介入前/後比較）</li><li>提供 low-incidence 與 high-incidence 區域之 phylogeographic 對照框架</li><li>對台灣 TB 控制（外籍移工輸入株、跨境傳播）有政策啟發</li></ul>`},
 ];
 
+// ══ HOST-PATHOGEN DATA ══
+const HOST_DATA = [
+  {
+    cat: "host genetics",
+    title: "GWAS meta-analysis identifies HLA class II locus associated with tuberculosis susceptibility (Schurz 2024)",
+    authors: "Schurz H, Naranbhai V, Tromp G, et al.",
+    journal: "eLife",
+    year: "2024",
+    country: "Multi-country (GWAS meta-analysis)",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10789494/",
+    database: "UK Biobank, TBResist, GWAS Catalog, dbGaP",
+    gene: "HLA-DQA1, HLA-DRB1 (rs28383206)",
+    finding: `<ul><li>GWAS meta-analysis: <strong>14,153 TB cases / 19,536 controls</strong> across multiple ancestries</li><li>Lead signal: <strong>rs28383206</strong> in HLA class II region (p=5.2×10⁻⁹), mapping to HLA-DQA1/HLA-DRB1</li><li>SNP-based heritability: <strong>h²=26.3%</strong> — substantial host genetic contribution confirmed</li><li>HLA-II variants modulate antigen presentation to CD4⁺ T cells, a central pathway in Mtb adaptive immunity</li></ul>`
+  },
+  {
+    cat: "host genetics",
+    title: "Host genetic susceptibility to tuberculosis: a review of candidate gene studies (Aravindan 2019)",
+    authors: "Aravindan T et al.",
+    journal: "Lung India",
+    year: "2019",
+    country: "Review",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6503728/",
+    database: "Literature review (candidate gene studies)",
+    gene: "NRAMP-1 (SLC11A1), VDR, TLR2/4/8/9, HLA-DR, IFNG, IL-12, SP110, P2X7",
+    finding: `<ul><li>Comprehensive review of <strong>20+ candidate genes</strong> implicated in TB susceptibility across ethnicities</li><li><strong>NRAMP-1 (SLC11A1)</strong>: most consistently replicated susceptibility gene; 3′UTR TGTG deletion allele increases risk</li><li><strong>VDR</strong> polymorphisms (TaqI, FokI, BsmI, ApaI) show population-specific associations with TB</li><li><strong>TLR2/4/8/9</strong>: functional variants impair Mtb pattern recognition; TLR8 Met1Val notably consistent</li><li>Ethnic heterogeneity is a major limitation — highlights need for large multi-ethnic GWAS</li></ul>`
+  },
+  {
+    cat: "host genetics",
+    title: "Human genetics and genomics of tuberculosis susceptibility (Naranbhai 2016)",
+    authors: "Naranbhai V.",
+    journal: "Microbiol Spectr",
+    year: "2016",
+    country: "Review",
+    url: "https://journals.asm.org/doi/10.1128/microbiolspec.tbtb2-0011-2016",
+    database: "Review (GWAS, linkage, candidate gene studies)",
+    gene: "SLC11A1, HLA region, chr11q12.3 (WT1/HAUS4), ASAP1",
+    finding: `<ul><li>Addresses the <strong>heritability paradox</strong>: twin studies show 40–80% heritability, yet GWAS hits explain only a fraction</li><li>Key GWAS loci: <strong>chr11q12.3</strong> (WT1/HAUS4 region), <strong>ASAP1</strong> (dendritic cell migration/function), <strong>HLA region</strong></li><li>Candidate gene era: <strong>SLC11A1</strong> most replicated; evidence also for VDR, TLR, and cytokine gene variants</li><li>Calls for larger diverse cohorts and functional genomics integration to explain "missing heritability"</li></ul>`
+  },
+  {
+    cat: "host genetics",
+    title: "Epigenetic modifications in tuberculosis infection: mechanisms and therapeutic implications (Abbasnia 2024)",
+    authors: "Abbasnia S et al.",
+    journal: "J Clin Tuberculosis Other Mycobact Dis",
+    year: "2024",
+    country: "Review",
+    url: "https://www.sciencedirect.com/science/article/pii/S2405579424000457",
+    database: "Literature review (epigenetic studies)",
+    gene: "DUSP4, TRIM62, KDM6B (JMJD3), IFN-γ pathway genes",
+    finding: `<ul><li>Reviews how Mtb hijacks host <strong>DNA methylation</strong> and <strong>histone modifications</strong> (H3K4me3↓, H3K27me3↑) to suppress immune gene expression</li><li><strong>DUSP4</strong> promoter hypermethylation silences MAPK-driven immune activation in infected macrophages</li><li><strong>KDM6B (JMJD3)</strong>, a histone H3K27 demethylase, promotes pro-inflammatory gene expression — a potential therapeutic target</li><li>Mtb-induced epigenetic changes can <strong>persist after pathogen clearance</strong>, potentially contributing to TB reactivation and altered susceptibility in subsequent exposures</li></ul>`
+  },
+  {
+    cat: "host genetics",
+    title: "Polygenic risk score incorporating TYK2 P1104A for tuberculosis susceptibility (Dashian 2025)",
+    authors: "Dashian P et al.",
+    journal: "Int J Mol Sci",
+    year: "2025",
+    country: "Estonia, Finland, UK (biobank-based)",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12524525/",
+    database: "Estonian Biobank, FinnGen, UK Biobank",
+    gene: "TYK2 (P1104A, rs34536443), HLA-A, SLC11A1",
+    finding: `<ul><li>Develops and validates a <strong>polygenic risk score (PRS)</strong> for TB susceptibility using three large biobanks</li><li><strong>TYK2 P1104A (rs34536443)</strong>: largest effect-size variant (OR ~2.5 for TB risk); loss-of-function allele impairs type I IFN and IL-12/IL-23 signalling</li><li>PRS integrating TYK2, HLA, and SLC11A1 variants achieves <strong>AUC ~0.67</strong> for TB prediction — modest but clinically informative</li><li>TYK2 P1104A carriers on JAK inhibitors (e.g., for rheumatoid arthritis) face elevated TB risk — <strong>clinical screening implication</strong></li></ul>`
+  }
+];
+
 const CATS = [...new Set(DATA.map(d => d.cat))];
 let activeCat = "全部";
+
+const HOST_CATS = [...new Set(HOST_DATA.map(d => d.cat))];
+let activeHostCat = "全部";
+
+let activePage = 'wgs';
 
 function catColor(cat) {
   const map = {
@@ -370,6 +506,30 @@ function catColor(cat) {
   return map[cat] || "b-blue";
 }
 
+function hostCatColor(cat) {
+  const map = {
+    "host genetics": "b-green",
+    "G2G": "b-purple"
+  };
+  return map[cat] || "b-blue";
+}
+
+function switchPage(page) {
+  activePage = page;
+  document.getElementById('page-wgs').style.display = page === 'wgs' ? '' : 'none';
+  document.getElementById('page-host').style.display = page === 'host' ? '' : 'none';
+  document.querySelectorAll('.page-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.page === page);
+  });
+  if (page === 'wgs') render();
+  else renderHost();
+}
+
+function searchDispatch() {
+  if (activePage === 'wgs') render();
+  else renderHost();
+}
+
 function render() {
   const q = document.getElementById('search').value.toLowerCase();
   const rows = DATA.filter(d => {
@@ -378,13 +538,12 @@ function render() {
     return matchCat && matchQ;
   }).sort((a, b) => (parseInt(b.year) || 0) - (parseInt(a.year) || 0));
 
-  // Update stats
   document.getElementById('s-total').textContent = DATA.length;
   document.getElementById('s-finding').textContent = DATA.filter(d => d.finding && !d.finding.includes('no-finding')).length;
   document.getElementById('s-recent').textContent = DATA.filter(d => parseInt(d.year) >= 2020).length;
   document.getElementById('s-cats').textContent = CATS.length;
   document.getElementById('s-shown').textContent = rows.length;
-  document.getElementById('ft-total').textContent = DATA.length;
+  document.getElementById('ft-total').textContent = DATA.length + HOST_DATA.length;
   document.getElementById('count-line').textContent = `// 顯示 ${rows.length} / ${DATA.length} 筆`;
 
   const tbody = document.getElementById('tbody');
@@ -410,7 +569,46 @@ function render() {
   }).join('');
 }
 
-// Build tabs
+function renderHost() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const rows = HOST_DATA.filter(d => {
+    const matchCat = activeHostCat === "全部" || d.cat === activeHostCat;
+    const matchQ = !q || (d.title + d.authors + d.finding + d.country + d.year + d.journal + (d.database || '') + (d.gene || '')).toLowerCase().includes(q);
+    return matchCat && matchQ;
+  }).sort((a, b) => (parseInt(b.year) || 0) - (parseInt(a.year) || 0));
+
+  document.getElementById('h-total').textContent = HOST_DATA.length;
+  document.getElementById('h-finding').textContent = HOST_DATA.filter(d => d.finding && !d.finding.includes('no-finding')).length;
+  document.getElementById('h-cats').textContent = HOST_CATS.length;
+  document.getElementById('h-shown').textContent = rows.length;
+  document.getElementById('hcount-line').textContent = `// 顯示 ${rows.length} / ${HOST_DATA.length} 筆`;
+
+  const tbody = document.getElementById('htbody');
+  if (rows.length === 0) {
+    tbody.innerHTML = `<tr class="empty-row"><td colspan="8">找不到符合條件的文獻</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = rows.map(d => {
+    const titleHtml = d.url
+      ? `<a href="${d.url}" target="_blank" rel="noopener noreferrer">${d.title}</a>`
+      : d.title;
+    const newTag = d.added ? `<span class="new-tag">NEW</span>` : '';
+    return `
+    <tr>
+      <td class="title-cell">${titleHtml}${newTag}<br><span class="year-tag">${d.year || '—'} · ${d.journal || '—'}</span></td>
+      <td class="author-cell">${d.authors || '—'}</td>
+      <td class="journal-cell">${d.journal || '—'}</td>
+      <td class="country-cell">${d.country || '—'}</td>
+      <td><span class="badge ${hostCatColor(d.cat)}">${d.cat}</span></td>
+      <td class="db-cell">${d.database || '—'}</td>
+      <td class="gene-cell">${d.gene || '—'}</td>
+      <td class="finding-cell">${d.finding || '<span class="no-finding">尚待補充</span>'}</td>
+    </tr>
+  `;
+  }).join('');
+}
+
+// Build WGS tabs
 const tabDiv = document.getElementById('tabs');
 ["全部", ...CATS].forEach(cat => {
   const btn = document.createElement('button');
@@ -418,14 +616,30 @@ const tabDiv = document.getElementById('tabs');
   btn.textContent = cat;
   btn.onclick = () => {
     activeCat = cat;
-    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#tabs .tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     render();
   };
   tabDiv.appendChild(btn);
 });
 
+// Build Host-Pathogen tabs
+const hostTabDiv = document.getElementById('htabs');
+["全部", ...HOST_CATS].forEach(cat => {
+  const btn = document.createElement('button');
+  btn.className = 'tab' + (cat === "全部" ? ' active' : '');
+  btn.textContent = cat;
+  btn.onclick = () => {
+    activeHostCat = cat;
+    document.querySelectorAll('#htabs .tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderHost();
+  };
+  hostTabDiv.appendChild(btn);
+});
+
 render();
+renderHost();
 </script>
 </body>
 </html>
