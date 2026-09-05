@@ -304,7 +304,7 @@ footer {
 
 </div><!-- end #page-host -->
 
-<footer>WGS_ref_notes · 最後更新 2026-08-05 · 共 <span id="ft-total"></span> 筆文獻整理</footer>
+<footer>WGS_ref_notes · 最後更新 2026-09-05 · 共 <span id="ft-total"></span> 筆文獻整理</footer>
 
 <script>
 const DATA = [
@@ -412,6 +412,26 @@ const DATA = [
   // ─── genomic+spatial ───
   {cat:"genomic+spatial",title:"Using genomic epidemiology and geographic activity spaces to investigate TB outbreaks in Botswana",authors:"Botswana public-health & academic collaboration",journal:"Int J Health Geogr",year:"2026",country:"Botswana",url:"https://link.springer.com/article/10.1186/s12942-026-00467-5",added:"2026-05-08",finding:`<ul><li>結合 <strong>WGS cluster (≤12 SNP)</strong> 與 GPS / 活動空間資料，分析 outbreak 之地理重疊</li><li>Genomic cluster 成員之活動範圍重疊度<strong>顯著高於</strong>非 cluster 對照</li><li>對中高負擔國家提出可行的<strong>空間—基因聯合監測</strong>架構</li><li>方法學：可作為都市/社群傳播分析模板，超越僅以住址為主的分析</li></ul>`},
   {cat:"genomic+spatial",title:"Genomic epidemiology of Mycobacterium tuberculosis in Malawi: using global phylogeography to understand the impact of geographically focused interventions",authors:"Microbial Genomics consortium (Malawi)",journal:"Microbial Genomics",year:"2026",country:"Malawi",url:"https://www.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.001674",added:"2026-05-08",finding:`<ul><li>運用 <strong>global phylogeography</strong> 描述 Mtb 在不同<strong>空間/時間尺度</strong>上的移動</li><li>探討<strong>地理性公衛介入</strong>對族群結構之影響（介入前/後比較）</li><li>提供 low-incidence 與 high-incidence 區域之 phylogeographic 對照框架</li><li>對台灣 TB 控制（外籍移工輸入株、跨境傳播）有政策啟發</li></ul>`},
+
+  // ─── bovis ───
+  {cat:"bovis",title:"Genomic epidemiology of the Mycobacterium tuberculosis complex in Fiji reveals community transmission and human Mycobacterium bovis infection",authors:"Fiji MTBC genomic epidemiology group",journal:"Frontiers in Microbiology",year:"2026",country:"Fiji",url:"https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1933597/full",added:"2026-09-05",finding:`<ul><li>62 株 MTBC 分離株，L4.3.3 為主要 sublineage 佔 <strong>33.9%</strong>（21/62），次為 L1.1.2 <strong>12.9%</strong>、L2.2.1 <strong>9.7%</strong>、L2.2.1.1 <strong>6.5%</strong></li><li>SNP &lt;12 門檻識別 <strong>12 個</strong>基因群聚，證實社群內近期傳播活躍</li><li>發現<strong>人類感染 M. bovis</strong> 案例，凸顯太平洋島國人畜共通 TB 監測缺口</li><li>島嶼型高負擔國家 WGS 監測範例，補足全球 MTBC lineage 分布地圖</li></ul>`},
+
+  // ─── pipeline ───
+  {cat:"pipeline",title:"Automated bioinformatic pipeline for unbiased detection of tuberculosis transmission clusters: real-time impact and retrospective insights",authors:"French national TB surveillance team",journal:"medRxiv (preprint)",year:"2026",country:"France",url:"https://www.medrxiv.org/content/10.64898/2026.03.16.26348245v1",added:"2026-09-05",finding:`<ul><li>建立法國國家層級 <strong>real-time</strong> WGS 群聚偵測自動化 pipeline，並整合至常規 TB 監測</li><li>回顧性分析證實 pipeline 可及早偵測跨區域傳播事件，優於傳統以個案通報為主之調查</li><li>展示 routine surveillance 導入 WGS 之實務流程與運行衝擊，適合 low-incidence 國家參考</li><li>Preprint 狀態：medRxiv 2026-03，尚未正式刊登</li></ul>`},
+
+  // ─── Subclinical TB (2026-09-05 additions) ───
+  {cat:"Subclinical TB",title:"Estimating the contribution to transmission of asymptomatic tuberculosis from population-based genomic epidemiology studies",authors:"China multi-center collaboration",journal:"Emerging Microbes & Infections",year:"2026",country:"China (5-cohort meta)",url:"https://www.tandfonline.com/doi/full/10.1080/22221751.2026.2640282",added:"2026-09-05",finding:`<ul><li>整合 <strong>5 個</strong> population-based 基因體流病研究，共 <strong>6,387</strong> 位 TB 患者、<strong>1,626</strong> 位基因群聚患者</li><li>以 <strong>phybreak</strong> 推論傳播時序，比對症狀起始日期分類 asymptomatic vs symptomatic 為傳播源</li><li>直接量化亞臨床 TB 對整體傳播的<strong>貢獻比例</strong>（研究於中國高負擔設定下）</li><li>方法學：以基因體傳播時序推論取代傳統症狀時序假設，補足亞臨床傳播評估</li></ul>`},
+  {cat:"Subclinical TB",title:"Transmissibility and Disease Progression of Asymptomatic Mycobacterium tuberculosis Infection, Lima, Peru",authors:"Peru TB cohort collaboration",journal:"Emerging Infectious Diseases 32(4)",year:"2026",country:"Lima, Peru",url:"https://wwwnc.cdc.gov/eid/article/32/4/25-1947_article",added:"2026-09-05",finding:`<ul><li>秘魯 Lima 前瞻性世代，追蹤無症狀 Mtb 感染的<strong>傳播力與疾病進展</strong></li><li>提供高負擔國家 asymptomatic TB 之自然史證據</li><li>補足 Ryckman 2022（模型）、Nguyen 2023（Vietnam）之亞臨床傳播實證鏈</li></ul>`},
+  {cat:"Subclinical TB",title:"Comparison of phylogenetic metrics of transmission between symptomatic and asymptomatic tuberculosis in individuals who were incarcerated in Brazil in 2008-24: a retrospective genomic epidemiology study",authors:"Brazil prison TB genomics consortium",journal:"Lancet Microbe",year:"2026",country:"Mato Grosso do Sul, Brazil (prisons)",url:"https://pmc.ncbi.nlm.nih.gov/articles/PMC12425057/",added:"2026-09-05",finding:`<ul><li>巴西 Mato Grosso do Sul 監獄 2008–2024 主動找案（2017–2022 三大監獄不分症狀採痰 + GeneXpert + culture）之 Mtb WGS</li><li>系統性比較多種傳播 metrics：<strong>phylogenetic clustering、Time-scaled Haplotype Density (THD)、Local Branching Index (LBI)</strong>，及 <strong>BREATH</strong> Bayesian 傳播史推論</li><li>直接於<strong>高風險關押場域</strong>評估「有症狀 vs 無症狀」個體之近期傳播貢獻</li><li>Preprint（medRxiv 2025-08）現正式刊登於 Lancet Microbe</li></ul>`},
+  {cat:"Subclinical TB",title:"Mycobacterium tuberculosis transmission from tuberculosis patients with and without recognized symptoms: a case-contact study in eastern China",authors:"Jiangsu case-contact study team",journal:"Nature Communications",year:"2026",country:"Jiangsu, China",url:"https://www.nature.com/articles/s41467-026-73707-8",added:"2026-09-05",finding:`<ul><li>江蘇 4 個健康中心 case-contact 研究：<strong>473</strong> 位 index、<strong>1,050</strong> 位接觸者、<strong>560</strong> 位未暴露對照</li><li>Index 中 asymptomatic 比例：無任何症狀 <strong>15%</strong>、無咳嗽 <strong>24%</strong>、無久咳 <strong>44%</strong></li><li>QuantiFERON 陽性 aRR：asymptomatic 接觸者 <strong>2.06</strong>（1.28–3.33）、symptomatic <strong>2.23</strong>（1.66–3.01）— <strong>兩者感染風險相當</strong></li><li>直接挑戰「僅有症狀者具傳染性」之公衛預設，支持擴大主動篩檢</li></ul>`},
+
+  // ─── Population-based (2026-09-05 addition) ───
+  {cat:"Population-based",title:"Genomic epidemiology of Mycobacterium tuberculosis in Wales",authors:"Welsh Public Health genomics team",journal:"Scientific Reports",year:"2025",country:"Wales, UK",url:"https://www.nature.com/articles/s41598-025-15076-8",added:"2026-09-05",finding:`<ul><li>2012–2022 十年威爾斯居民 Mtb 分離株，SNP-based typing 分析菌株多樣性、抗藥性與持續傳播</li><li>low-incidence 國家 <strong>routine WGS 監測</strong>之十年回顧範例</li><li>提供英國 devolved nations 層級之 TB 基因體流病基線</li></ul>`},
+
+  // ─── Prediction of DR (2026-09-05 additions) ───
+  {cat:"Prediction of DR",title:"First insight of characteristics and prediction of Mycobacterium tuberculosis drug resistance by whole genome sequencing in Fujian Province, China",authors:"Fujian CDC team",journal:"Scientific Reports",year:"2026",country:"Fujian, China",url:"https://www.nature.com/articles/s41598-026-40398-6",added:"2026-09-05",finding:`<ul><li>福建省首份 WGS DR 預測研究，pDST 與 <strong>SAM-TB</strong> 平台分析</li><li>描述地區性抗藥性突變分布與預測表現</li><li>補足中國東南沿海省份之 DR 基因體監測資料</li></ul>`},
+  {cat:"Prediction of DR",title:"Whole-genome sequencing reveals lineage-associated drug resistance and enables machine learning-based prediction in Mycobacterium tuberculosis clinical isolates",authors:"Xinjiang WGS+ML team",journal:"Frontiers in Microbiology",year:"2026",country:"Xinjiang, China",url:"https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1828991/full",added:"2026-09-05",finding:`<ul><li>整合 <strong>WGS + machine learning</strong> 描繪抗藥性基因體架構並建構表型預測模型</li><li>揭示 <strong>lineage-associated</strong> 抗藥性關聯性</li><li>提供 ML 應用於臨床 DR 預測之地區性驗證</li></ul>`},
+  {cat:"Prediction of DR",title:"Open-access genomic drug resistance prediction tools for Mycobacterium tuberculosis: a systematic review and meta-analysis",authors:"Multi-country evaluation collaboration",journal:"Journal of Clinical Microbiology",year:"2026",country:"Systematic review",url:"https://journals.asm.org/doi/10.1128/jcm.00321-26",added:"2026-09-05",finding:`<ul><li>系統性評估開放源碼 DR 預測工具：<strong>TBProfiler、Mykrobe、PhyResSE、MTBseq、GenTB、SAM-TB</strong></li><li><strong>TBProfiler 與 Mykrobe</strong> 為評估最廣泛之工具</li><li>結論：軟體表現於不同研究間<strong>報告落差大</strong>，部分符合 WHO 標準、部分未達標，臨床採用仍受限</li><li>提供工具選擇與效能基準之最新統整參考</li></ul>`},
 ];
 
 // ══ HOST-PATHOGEN DATA ══
@@ -592,7 +612,9 @@ function catColor(cat) {
     "Within-host": "b-purple",
     "MIRU vs WGS": "b-amber",
     "DirectSeq": "b-rose",
-    "genomic+spatial": "b-purple"
+    "genomic+spatial": "b-purple",
+    "bovis": "b-rose",
+    "pipeline": "b-amber"
   };
   return map[cat] || "b-blue";
 }
